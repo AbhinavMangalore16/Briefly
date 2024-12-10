@@ -25,7 +25,8 @@ files_list = [
     "Dockerfile",
     "requirements.txt",
     "setup.py",
-    "testing/trials.ipynb"
+    "testing/trials.ipynb",
+    "research/trials.ipynb",
 ]
 
 
@@ -38,7 +39,7 @@ for filename in files_list:
     if (not os.path.exists(filepath)) or (os.path.getsize(filepath) == 0):
         with open(filepath, 'w') as f:
             pass
-        logging.info(f"Creating empty file: {filepath}")
+            logging.info(f"Creating empty file: {filepath}")
     else:
         logging.info(f"{file_name} already exists!")
         
