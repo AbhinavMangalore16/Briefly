@@ -14,7 +14,18 @@ def create_dirs(path_dirs: list, verbose = True):
         if verbose:
             logger.info(f"Creating directory at: {path}")
             
-            
+@ensure_annotations
+def read_yaml(path: Path) -> ConfigBox:
+    try:
+        with open(path) as yaml_f:
+            content = yaml.safe_load(yaml_f)
+            logger.info(f"YaML File: {path} loaded successfully")
+            return ConfigBox(content)
+    except BoxValueError:
+        raise ValueError("YaML File is empty")
+    except Exception as e:
+        raise e
+
 @ensure_annotations
 def get_size(path:Path) -> str:
     size = round(os.path.getsize(path)/1024)
