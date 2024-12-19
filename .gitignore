@@ -164,3 +164,6 @@ cython_debug/
 # Ignore log files
 *.log
 logs/
+
+data/
+research/*_folder
