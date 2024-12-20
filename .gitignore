@@ -167,3 +167,6 @@ logs/
 
 data/
 research/*_folder
+research/wandb
+research/*model
+research/tokenix*
