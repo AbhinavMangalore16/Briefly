@@ -1,7 +1,5 @@
 import os
-from src.Briefly.logging import logger
 from src.Briefly.entity import DataTransformConfig
-from src.Briefly.logging import logger
 from transformers import AutoTokenizer
 from datasets import load_from_disk
 

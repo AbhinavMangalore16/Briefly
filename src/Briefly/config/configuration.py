@@ -1,7 +1,7 @@
 from src.Briefly.utils.common import read_yaml, create_dirs
 from src.Briefly.constants import *
 
-from src.Briefly.entity import DataIngestionConfig, DataTransformConfig
+from src.Briefly.entity import DataIngestionConfig, DataTransformConfig, TrainingModelConfig
 
 class ConfigManager: 
     def __init__(self, config_path: Path = CONFIG_PATH, params_path: Path = PARAMS_PATH):
@@ -30,3 +30,24 @@ class ConfigManager:
             tokenizer=config.tokenizer,
         )
         return data_transform_config
+    def get_training_model_config(self) -> TrainingModelConfig:
+        config = self.config.training_model
+        params = self.params.TrainingArguments
+
+        create_dirs([config.root_dir])
+        training_model_config = TrainingModelConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+            model_checkpoint=config.model_checkpoint,
+            num_train_epochs=params.num_train_epochs,
+            per_device_train_batch_size=params.per_device_train_batch_size,
+            per_device_eval_batch_size= params.per_device_eval_batch_size,
+            warmup_steps=params.warmup_steps,
+            weight_decay=params.weight_decay,
+            logging_steps=params.logging_steps,
+            evaluation_strategy=params.evaluation_strategy,
+            eval_steps=params.eval_steps,
+            save_steps=params.save_steps,
+            gradient_accumulation_steps=params.gradient_accumulation_steps
+        )
+        return training_model_config
