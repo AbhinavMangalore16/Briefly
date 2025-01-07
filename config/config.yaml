@@ -17,3 +17,10 @@ training_model:
   root_dir: artifacts/training_model
   data_path: artifacts/data_transform/samsum_dataset
   model_checkpoint: google/pegasus-cnn_dailymail
+
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  dataset_path: artifacts/data_transform/samsum_dataset
+  model_path: artifacts/training_model/pegasus-samsum-model
+  tokenizer_path: artifacts/training_model/tokenizer
+  metrics_file: artifacts/training_model/metrics.csv
