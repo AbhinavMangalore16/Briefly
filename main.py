@@ -11,12 +11,15 @@ try:
     data_ingestion_pipeline.init_data_ingestion()
     logger.info(f"{S1} completed!")
 
+except Exception as e:
+    logger.exception(e)
+    raise e
+
+try:
     logger.info(f"{S2} initiated")
     data_transform_pipeline = DataTransformPipeline()
     data_transform_pipeline.init_data_transform()
     logger.info(f"{S2} completed!")
-
-
 except Exception as e:
     logger.exception(e)
     raise e
