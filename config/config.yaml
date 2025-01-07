@@ -23,4 +23,4 @@ model_evaluation:
   dataset_path: artifacts/data_transform/samsum_dataset
   model_path: artifacts/training_model/pegasus-samsum-model
   tokenizer_path: artifacts/training_model/tokenizer
-  metrics_file: artifacts/training_model/metrics.csv
+  metrics_file: artifacts/model_evaluation/metrics.csv
